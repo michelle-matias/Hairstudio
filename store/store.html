@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Natalie's Hairstudio - Store</title>
+    <link rel='stylesheet' href='../global.css'>
+    <link rel='stylesheet' href='store.css'>
+</head>
+
+<body>
+    <header id='header'>
+        <nav>
+            <div class='logo'>Natalie's Hairstudio</div>
+            <ul>
+                <li><a href='../main/main.html'>Home</a></li>
+                <li><a href='store.html'>Loja</a></li>
+                <li><a href='../about/about.html'>Estilista</a></li>
+                <li><a href='../services/services.html'>Serviços</a></li>
+                <li><a href='../gallery/gallery.html'>Galeria</a></li>
+                <li><a href='../contact/contact.html'>Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>A coleção de produtos profissionais</h1>
+            <p>Descubra a nossa seleção de produtos de alta qualidade.</p>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="shop-section">
+        <div class="controls-wrapper">
+            <div class="tabs">
+                <button class="tab active" data-category="all">All</button>
+                <button class="tab" data-category="shampoo">Shampoo</button>
+                <button class="tab" data-category="conditioner">Conditioner</button>
+                <button class="tab" data-category="serums">Serums</button>
+                <button class="tab" data-category="styling">Styling</button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be inserted here by JavaScript -->
+        </div>
+    </section>
+
+    <script src='store.js'></script>
+</body>
+
+</html>

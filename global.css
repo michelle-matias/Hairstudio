@@ -1,5 +1,49 @@
 :root {
   --main-color: #C68B77;
-  --secondary-color:#F5F2ED;
+  --secondary-color: #F5F2ED;
   --accent-color: #ECE4D9;
+}
+
+
+/*  Header & Navbar */
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  align-items: center;
+  color: var(--main-color);
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  /* logo above menu */
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  display: flex;
+
+}
+
+ul li a {
+  display: block;
+  color: #000000;
+  padding: 14px 16px;
+  text-decoration: none;
+  justify-content: center;
+}
+
+ul li a:hover {
+  color: var(--main-color);
 }
