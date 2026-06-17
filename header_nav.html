@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header_nav</title>
+    <style>
+        /* Header & Navbar */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #e4e1e1;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #C68B77;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 0;
+        }
+
+        ul li a {
+            display: block;
+            color: #000000;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        ul li a:hover {
+            color: #C68B77;
+        }
+
+        @media (max-width: 600px) {
+            ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class='logo'>Natalie's Hairstudio</div>
+            <ul>
+                <li><a href='/main/main.html'>Home</a></li>
+                <li><a href='/store/store.html'>Loja</a></li>
+                <li><a href='/about/about.html'>Estilista</a></li>
+                <li><a href='/services/services.html'>Serviços</a></li>
+                <li><a href='/gallery/gallery.html'>Galeria</a></li>
+                <li><a href='/contact/contact.html'>Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>

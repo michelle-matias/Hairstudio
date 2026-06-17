@@ -139,7 +139,6 @@ function renderProducts(filteredProducts = products) {
                 <h3>${product.name}</h3>
                 <p class="product-description">${product.description}</p>
                 <p class="product-price">€${product.price.toFixed(2)}</p>
-                <button class="btn-primary">Adicionar</button>
             </div>
         `;
         grid.appendChild(productCard);
@@ -153,6 +152,8 @@ function filterProducts(category) {
     }
     return products.filter(product => product.category === category);
 }
+
+
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -175,3 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+

@@ -10,20 +10,15 @@
 </head>
 
 <body>
-    <header id='header'>
-        <nav>
-            <div class='logo'>Natalie's Hairstudio</div>
-            <ul>
-                <li><a href='/main/main.html'>Home</a></li>
-                <li><a href='/store/store.html'>Loja</a></li>
-                <li><a href='#about'>Estilista</a></li>
-                <li><a href='#contact'>Serviços</a></li>
-                <li><a href='#gallery'>Galeria</a></li>
-                <li><a href='#contact'>Contactos</a></li>
-            </ul>
-        </nav>
-    </header>
-
+   <div id="header"></div>
+    <script>
+    fetch('/header_nav.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header').innerHTML = html;
+        });
+    </script>
+    
 <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -73,6 +68,16 @@
         </div>
        
     </section>
+
+    <div id="footer"></div>
+
+    <script>
+    fetch('/footer.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer').innerHTML = html;
+        });
+</script>
 
 </body>
 
