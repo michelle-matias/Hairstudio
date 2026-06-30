@@ -10,69 +10,66 @@
 </head>
 
 <body>
-   <div id="header"></div>
-    <script>
-    fetch('/header_nav.html')
-        .then(r => r.text())
-        .then(html => {
-            document.getElementById('header').innerHTML = html;
-        });
-    </script>
+    <div id="header"></div>
+    <script src="../header-loader.js"></script>
     
 <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Bem-vindo ao Natalie's Hairstudio</h1>
-            <p>O Estúdio de Cabeleireiro da Natalie tem servido a comunidade há mais de 20 anos. A nossa cabeleireira experiente dedica-se a prestar um serviço de excelência, ajudando-o(a) a ter a melhor aparência e a sentir-se no seu melhor.</p>
-            <div class="hero-buttons">
-                <button class="btn-primary">Book Now</button>
-                <button class="btn-secondary">Learn More</button>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Bem-vindo ao Natalie's Hairstudio</h1>
+                <p>O Estúdio de Cabeleireiro da Natalie tem servido a comunidade há mais de 20 anos. A nossa cabeleireira experiente dedica-se a prestar um serviço de excelência, ajudando-o(a) a ter a melhor aparência e a sentir-se no seu melhor.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Book Now</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="/pictures/salon_sink.jpeg" alt="Luxury salon interior">
+            <div class="hero-image">
+                <img src="/pictures/salon_sink.jpeg" alt="Luxury salon interior">
+            </div>
         </div>
     </section>
 
 
 <!-- Shop Section -->
     <section class="shop">
+        <div class="shop-container">
+             <div class="shop-image">
+                <img src="/pictures/serum.jpg" alt="Luxury salon interior">
+            </div>
 
-         <div class="shop-image">
-            <img src="/pictures/serum.jpg" alt="Luxury salon interior">
-        </div>
-
-        <div class="shop-content">
-            <h1>Os nossos Produtos</h1>
-            <p>Descubra a nossa seleção de produtos de alta qualidade, cuidadosamente escolhidos para manter o seu cabelo saudável e brilhante.</p>
-            <div class="shop-buttons">
-                <button class="btn-primary">Shop Now</button>
+            <div class="shop-content">
+                <h1>Os nossos Produtos</h1>
+                <p>Descubra a nossa seleção de produtos de alta qualidade, cuidadosamente escolhidos para manter o seu cabelo saudável e brilhante.</p>
+                <div class="shop-buttons">
+                    <button class="btn-primary">Shop Now</button>
+                </div>
             </div>
         </div>
-       
     </section>
 
 
 <!-- social Section -->
     <section class="social">
-        <div class="social-content">
-            <h1>Segue-nos nas Redes Sociais</h1>
-            <p>Atualiza-te sobre as últimas promoções e novidades do Natalie's Hairstudio.</p>
-            <div class="social-buttons">
-                <button class="btn-primary">Siga-nos</button>
+        <div class="social-container">
+            <div class="social-content">
+                <h1>Segue-nos nas Redes Sociais</h1>
+                <p>Atualiza-te sobre as últimas promoções e novidades do Natalie's Hairstudio.</p>
+                <div class="social-buttons">
+                    <button class="btn-primary">Siga-nos</button>
+                </div>
+            </div>
+
+            <div class="social-image">
+                <img src="/pictures/follow-us-on-social-media.jpg" alt="socials">
             </div>
         </div>
-
-        <div class="social-image">
-            <img src="/pictures/follow-us-on-social-media.jpg" alt="socials">
-        </div>
-       
     </section>
 
     <div id="footer"></div>
 
     <script>
-    fetch('/footer.html')
+    fetch('../footer.html', { cache: 'no-store' })
         .then(r => r.text())
         .then(html => {
             document.getElementById('footer').innerHTML = html;
@@ -81,4 +78,4 @@
 
 </body>
 
-</html>>
+</html>

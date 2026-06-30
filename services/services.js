@@ -37,3 +37,5 @@ function initializeTabs() {
 
     console.log('Tabs initialized successfully');
 }
+
+document.addEventListener('DOMContentLoaded', initializeTabs);

@@ -10,13 +10,7 @@
 <body>
         <!-- Header loaded dynamically -->
     <div id="header"></div>
- <script>
-    fetch('/header_nav.html')
-        .then(r => r.text())
-        .then(html => {
-            document.getElementById('header').innerHTML = html;
-        });
-    </script>
+    <script src="../header-loader.js"></script>
 
     <main class="contact-main">
         <!-- Hero Section -->
@@ -106,7 +100,7 @@
 
    <script>
 
-    fetch('/footer.html')
+    fetch('../footer.html', { cache: 'no-store' })
         .then(r => r.text())
         .then(html => {
             document.getElementById('footer').innerHTML = html;

@@ -3,3 +3,13 @@
   --secondary-color: #F5F2ED;
   --accent-color: #ECE4D9;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+}

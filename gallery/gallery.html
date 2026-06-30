@@ -10,24 +10,20 @@
 <body>
      <!-- Header loaded dynamically -->
     <div id="header"></div>
- <script>
-    fetch('/header_nav.html')
-        .then(r => r.text())
-        .then(html => {
-            document.getElementById('header').innerHTML = html;
-        });
-    </script>
+    <script src="../header-loader.js"></script>
 
     <main class="gallery-main">
         <!-- Hero Section -->
         <section class="hero-gallery">
-            <div class="hero-gallery-content">
-                <p class="hero-subtitle">Our Work</p>
-                <h1>Beautiful Transformations</h1>
-                <p>Explore our portfolio of stunning hair transformations and professional styling work.</p>
-            </div>
-            <div class="hero-gallery-image">
-                <img src="../pictures/salon_sink.jpeg" alt="Gallery showcase">
+            <div class="hero-gallery-container">
+                <div class="hero-gallery-content">
+                    <p class="hero-subtitle">Our Work</p>
+                    <h1>Beautiful Transformations</h1>
+                    <p>Explore our portfolio of stunning hair transformations and professional styling work.</p>
+                </div>
+                <div class="hero-gallery-image">
+                    <img src="../pictures/salon_sink.jpeg" alt="Gallery showcase">
+                </div>
             </div>
         </section>
 
@@ -185,7 +181,7 @@
     <div id="footer"></div>
     <script>
 
-    fetch('/footer.html')
+    fetch('../footer.html', { cache: 'no-store' })
         .then(r => r.text())
         .then(html => {
             document.getElementById('footer').innerHTML = html;

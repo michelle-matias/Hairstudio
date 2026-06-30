@@ -11,37 +11,35 @@
 
 <body>
     <div id="header"></div>
-    <script>
-    fetch('/header_nav.html')
-        .then(r => r.text())
-        .then(html => {
-            document.getElementById('header').innerHTML = html;
-        });
-    </script>
+    <script src="../header-loader.js"></script>
     
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>A coleção de produtos profissionais</h1>
-            <p>Descubra a nossa seleção de produtos de alta qualidade.</p>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>A coleção de produtos profissionais</h1>
+                <p>Descubra a nossa seleção de produtos de alta qualidade.</p>
+            </div>
         </div>
     </section>
 
     <!-- Filters Section -->
     <section class="shop-section">
-        <div class="controls-wrapper">
-            <div class="tabs">
-                <button class="tab active" data-category="all">All</button>
-                <button class="tab" data-category="shampoo">Shampoo</button>
-                <button class="tab" data-category="conditioner">Conditioner</button>
-                <button class="tab" data-category="serums">Serums</button>
-                <button class="tab" data-category="styling">Styling</button>
+        <div class="shop-container">
+            <div class="controls-wrapper">
+                <div class="tabs">
+                    <button class="tab active" data-category="all">All</button>
+                    <button class="tab" data-category="shampoo">Shampoo</button>
+                    <button class="tab" data-category="conditioner">Conditioner</button>
+                    <button class="tab" data-category="serums">Serums</button>
+                    <button class="tab" data-category="styling">Styling</button>
+                </div>
             </div>
-        </div>
 
-        <!-- Products Grid -->
-        <div class="products-grid" id="productsGrid">
-            <!-- Products will be inserted here by JavaScript -->
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be inserted here by JavaScript -->
+            </div>
         </div>
     </section>
 
@@ -50,7 +48,7 @@
     <script src="store.js"> </script>
     <script>
 
-    fetch('/footer.html')
+    fetch('../footer.html', { cache: 'no-store' })
         .then(r => r.text())
         .then(html => {
             document.getElementById('footer').innerHTML = html;

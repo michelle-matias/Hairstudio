@@ -74,6 +74,8 @@ function closeLightbox() {
     document.body.style.overflow = 'auto';
 }
 
+document.addEventListener('DOMContentLoaded', initializeGallery);
+
 // Close on ESC key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {

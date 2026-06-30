@@ -1,10 +1,17 @@
 /* Hero Section */
 .hero {
     background-color: var(--secondary-color);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-container {
     padding: 1rem 3rem;
     text-align: center;
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-content h1 {
@@ -25,9 +32,16 @@
 /* Shop Section */
 .shop-section {
     background-color: var(--accent-color);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.shop-container {
     padding: 4rem 3rem;
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Filter Tabs */
@@ -162,6 +176,12 @@
 }
 
 @media (max-width: 480px) {
+    .hero-container,
+    .shop-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
     .products-grid {
         grid-template-columns: 1fr;
     }

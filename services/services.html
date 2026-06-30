@@ -10,26 +10,10 @@
 <body>
     <!-- Header loaded dynamically -->
     <div id="header"></div>
- <script>
-    fetch('/header_nav.html')
-        .then(r => r.text())
-        .then(html => {
-            document.getElementById('header').innerHTML = html;
-        });
-    </script>
+    <script src="../header-loader.js"></script>
 
     <!-- Hero Section -->
-    <section class="hero-services">
-        <div class="hero-services-content">
-            <p class="hero-subtitle">TABELA DE PREÇOS</p>
-            <h1>Todos os Nossos Serviços</h1>
-            <p>Descubra a nossa completa variedade de serviços de cabelo e beleza. Desde cortes clássicos a tratamentos especializados, temos tudo o que precisa para se sentir o seu melhor.</p>
-            <button class="btn-primary">Marcar Consulta</button>
-        </div>
-        <div class="hero-services-image">
-            <img src="../pictures/salon_sink.jpeg" alt="Salão profissional">
-        </div>
-    </section>
+   
 
     <!-- Services Overview -->
     <section class="services-overview">
@@ -310,7 +294,7 @@
     <div id="footer"></div>
     <script>
 
-    fetch('/footer.html')
+    fetch('../footer.html', { cache: 'no-store' })
         .then(r => r.text())
         .then(html => {
             document.getElementById('footer').innerHTML = html;
