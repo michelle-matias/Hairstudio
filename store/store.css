@@ -50,6 +50,38 @@
     text-align: center;
 }
 
+.search-wrapper {
+    max-width: 620px;
+    margin: 0 auto 1.5rem;
+    text-align: left;
+}
+
+.search-label {
+    display: block;
+    color: #2d2d2d;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.product-search {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.85rem 1rem;
+    background-color: #ffffff;
+    border: 2px solid rgba(198, 139, 119, 0.22);
+    border-radius: 8px;
+    color: #1f1f1f;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-search:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 4px rgba(198, 139, 119, 0.14);
+}
+
 .tabs {
     display: flex;
     gap: 1rem;
@@ -152,6 +184,48 @@
     margin-bottom: 1rem;
 }
 
+.products-empty {
+    margin: 2rem 0 0;
+    color: #666;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+}
+
+.pagination-button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.65rem 0.95rem;
+    background-color: #ffffff;
+    color: #1f1f1f;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.pagination-button:hover:not(:disabled),
+.pagination-button.active {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: #ffffff;
+}
+
+.pagination-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
 
 /* Hide products that don't match filter */
 .product-card.hidden {
@@ -190,8 +264,22 @@
         flex-direction: column;
     }
 
+    .search-wrapper {
+        max-width: none;
+    }
+
     .tab {
         width: 100%;
+    }
+
+    .pagination {
+        gap: 0.5rem;
+    }
+
+    .pagination-button {
+        min-width: 40px;
+        min-height: 40px;
+        padding: 0.55rem 0.75rem;
     }
 
     .hero-content h1 {

@@ -122,12 +122,44 @@ const products = [
     }
 ];
 
-// Render Products
-function renderProducts(filteredProducts = products) {
-    const grid = document.getElementById('productsGrid');
-    grid.innerHTML = '';
+const PRODUCTS_PER_PAGE = 6;
 
-    filteredProducts.forEach(product => {
+const storeState = {
+    category: 'all',
+    searchTerm: '',
+    currentPage: 1
+};
+
+function getFilteredProducts() {
+    const normalizedSearch = storeState.searchTerm.trim().toLowerCase();
+
+    return products.filter(product => {
+        const matchesCategory = storeState.category === 'all' || product.category === storeState.category;
+        const searchableText = `${product.name} ${product.category} ${product.description}`.toLowerCase();
+        const matchesSearch = normalizedSearch === '' || searchableText.includes(normalizedSearch);
+
+        return matchesCategory && matchesSearch;
+    });
+}
+
+// Render Products
+function renderProducts() {
+    const grid = document.getElementById('productsGrid');
+    const emptyMessage = document.getElementById('productsEmpty');
+    const filteredProducts = getFilteredProducts();
+    const totalPages = Math.max(1, Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE));
+
+    if (storeState.currentPage > totalPages) {
+        storeState.currentPage = totalPages;
+    }
+
+    const startIndex = (storeState.currentPage - 1) * PRODUCTS_PER_PAGE;
+    const paginatedProducts = filteredProducts.slice(startIndex, startIndex + PRODUCTS_PER_PAGE);
+
+    grid.innerHTML = '';
+    emptyMessage.hidden = filteredProducts.length > 0;
+
+    paginatedProducts.forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
         productCard.innerHTML = `
@@ -143,22 +175,62 @@ function renderProducts(filteredProducts = products) {
         `;
         grid.appendChild(productCard);
     });
+
+    renderPagination(totalPages, filteredProducts.length);
 }
 
-// Filter Products
-function filterProducts(category) {
-    if (category === 'all') {
-        return products;
+function renderPagination(totalPages, resultCount) {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+
+    if (resultCount <= PRODUCTS_PER_PAGE) {
+        pagination.hidden = true;
+        return;
     }
-    return products.filter(product => product.category === category);
+
+    pagination.hidden = false;
+
+    const previousButton = createPaginationButton('Previous', storeState.currentPage - 1);
+    previousButton.disabled = storeState.currentPage === 1;
+    pagination.appendChild(previousButton);
+
+    for (let page = 1; page <= totalPages; page++) {
+        const pageButton = createPaginationButton(page, page);
+        pageButton.classList.toggle('active', page === storeState.currentPage);
+        pageButton.setAttribute('aria-current', page === storeState.currentPage ? 'page' : 'false');
+        pagination.appendChild(pageButton);
+    }
+
+    const nextButton = createPaginationButton('Next', storeState.currentPage + 1);
+    nextButton.disabled = storeState.currentPage === totalPages;
+    pagination.appendChild(nextButton);
 }
 
+function createPaginationButton(label, page) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'pagination-button';
+    button.textContent = label;
+    button.addEventListener('click', () => {
+        storeState.currentPage = page;
+        renderProducts();
+        document.querySelector('.shop-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
+    return button;
+}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     // Render all products on load
     renderProducts();
+
+    const searchInput = document.getElementById('productSearch');
+    searchInput.addEventListener('input', () => {
+        storeState.searchTerm = searchInput.value;
+        storeState.currentPage = 1;
+        renderProducts();
+    });
 
     // Add click event to tabs
     const tabs = document.querySelectorAll('.tab');
@@ -170,12 +242,11 @@ document.addEventListener('DOMContentLoaded', () => {
             tab.classList.add('active');
 
             // Filter and render products
-            const category = tab.getAttribute('data-category');
-            const filtered = filterProducts(category);
-            renderProducts(filtered);
+            storeState.category = tab.getAttribute('data-category');
+            storeState.currentPage = 1;
+            renderProducts();
         });
     });
 });
-
 
 

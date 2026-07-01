@@ -27,6 +27,16 @@
     <section class="shop-section">
         <div class="shop-container">
             <div class="controls-wrapper">
+                <div class="search-wrapper">
+                    <label class="search-label" for="productSearch">Search products</label>
+                    <input
+                        type="search"
+                        id="productSearch"
+                        class="product-search"
+                        placeholder="Search by product name, category, or description"
+                        autocomplete="off"
+                    >
+                </div>
                 <div class="tabs">
                     <button class="tab active" data-category="all">All</button>
                     <button class="tab" data-category="shampoo">Shampoo</button>
@@ -40,12 +50,14 @@
             <div class="products-grid" id="productsGrid">
                 <!-- Products will be inserted here by JavaScript -->
             </div>
+            <p class="products-empty" id="productsEmpty" hidden>No products found.</p>
+            <div class="pagination" id="pagination" aria-label="Product pagination"></div>
         </div>
     </section>
 
 
     <div id="footer"></div>
-    <script src="store.js"> </script>
+    <script src="store.js?v=20260630"></script>
     <script>
 
     fetch('../footer.html', { cache: 'no-store' })
